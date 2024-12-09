@@ -3990,12 +3990,18 @@ cc_prebuilt_library_shared {
                 "libdl",
                 "libc",
                 "libm",
+                "libcommonchiutils",
+                "libcamxcommonutils",
+                "libcamxsettingsmanager",
+                "android.hardware.graphics.allocator-V1-ndk",
+                "vendor.oplus.hardware.osense.client-V1-ndk",
             ],
         },
     },
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
@@ -5617,6 +5623,11 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "libcommonchiutils",
+                "libcamxcommonutils",
+                "libcamxsettingsmanager",
+                "android.hardware.graphics.allocator-V1-ndk",
+                "vendor.oplus.hardware.osense.client-V1-ndk",
             ],
         },
     },
@@ -9995,6 +10006,110 @@ cc_prebuilt_binary {
     prefer: true,
     relative_install_path: "hw",
     device_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libosensenativeproxy_client",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libosensenativeproxy_client.so"],
+            shared_libs: ["libbinder_ndk", "libbase", "liblog", "libutils", "libcutils", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	device_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.oplus.hardware.performance-V1-ndk",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/odm/lib64/vendor.oplus.hardware.performance-V1-ndk.so"],
+			shared_libs: ["libbinder_ndk", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	device_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.oplus.hardware.performance-V1-ndk_vendor",
+	stem: "vendor.oplus.hardware.performance-V1-ndk",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.oplus.hardware.performance-V1-ndk.so"],
+			shared_libs: ["libbinder_ndk", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libcommonchiutils",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libcommonchiutils.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libsync", "android.hardware.graphics.common@1.1", "libhardware", "libhidlbase", "libhidltransport", "libcamera_metadata", "libcamxcommonutils", "libcamxsettingsmanager", "libqti_vndfwk_detect", "libutils", "android.hardware.graphics.allocator@4.0", "android.hardware.graphics.mapper@4.0", "libgralloc.qti", "libgralloctypes", "vendor.qti.hardware.display.allocator@4.0", "vendor.qti.hardware.display.mapper@4.0", "vendor.qti.hardware.display.mapperextensions@1.1", "vendor.oplus.hardware.osense.client-V1-ndk", "libosenseaidlhalclient", "vendor.oplus.hardware.performance-V1-ndk_vendor", "libbinder_ndk", "libchilog", "libc", "libm", "libdl", "android.hardware.graphics.allocator-V1-ndk", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+    allow_undefined_symbols: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libcamxcommonutils",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libcamxcommonutils.so"],
+			shared_libs: ["libc++", "libcutils", "liblog", "libhwconfigurationutil", "libsync", "libutils", "libutilscallstack", "libqti_vndfwk_detect", "libbinder_ndk", "vendor.oplus.hardware.performance-V1-ndk_vendor", "libz", "libc", "libm", "libdl", "libosensenativeproxy_client", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libcamxsettingsmanager",
+	owner: "oneplus",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libcamxsettingsmanager.so"],
+			shared_libs: ["libcamxcommonutils", "libcutils", "libhwconfigurationutil", "liblog", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
 }
 
 sh_binary {

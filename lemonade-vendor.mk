@@ -781,6 +781,12 @@ PRODUCT_PACKAGES += \
     libalsc \
     libbitmlengine \
     libbitmlenginev2 \
+    libosensenativeproxy_client \
+    vendor.oplus.hardware.performance-V1-ndk \
+    vendor.oplus.hardware.performance-V1-ndk_vendor \
+    libcommonchiutils \
+    libcamxcommonutils \
+    libcamxsettingsmanager \
     libcamera_nn_stub \
     libcamerapostproc \
     libcamxexternalformatutils \
